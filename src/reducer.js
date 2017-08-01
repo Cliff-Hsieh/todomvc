@@ -5,4 +5,5 @@ import components from './components/reducer';
 
 export default combineReducers({
     services,
+    components,
 });
