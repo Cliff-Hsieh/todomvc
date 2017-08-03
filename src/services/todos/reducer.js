@@ -2,13 +2,7 @@ import {
     types,
 } from './actions';
 
-const INITIAL_STATE = [
-  {
-    text: 'Use Redux',
-    completed: false,
-    id: 0
-  }
-];
+const INITIAL_STATE = [];
 
 export default (state = INITIAL_STATE, action) => {
     const {
@@ -18,6 +12,7 @@ export default (state = INITIAL_STATE, action) => {
         COMPLETE_TODO,
         COMPLETE_ALL,
         CLEAR_COMPLETED,
+        UPDATE_TODOS,
     } = types;
     
     switch (action.type) {
@@ -59,6 +54,9 @@ export default (state = INITIAL_STATE, action) => {
 
         case CLEAR_COMPLETED:
             return state.filter(todo => todo.completed === false);
+        
+        case UPDATE_TODOS:
+            return action.todos;
 
         default:
             return state;
